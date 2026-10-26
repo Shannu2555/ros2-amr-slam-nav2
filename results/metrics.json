@@ -1,0 +1,38 @@
+{
+ "mapping": {
+  "map_cells": 38240,
+  "occupied_cells": 2423,
+  "map_updates": 76,
+  "wall_err_median_cm": 0.0,
+  "wall_err_p95_cm": 10.0,
+  "walls_within_5cm_pct": 81.2,
+  "drive_length_m": 47.2,
+  "drive_time_s": 153.2,
+  "odom_end_drift_m": 0.25,
+  "odom_max_drift_m": 0.44
+ },
+ "nav_default": {
+  "goals": 20,
+  "succeeded": 20,
+  "contacts": 0,
+  "final_err_mean_cm": 21.0,
+  "final_err_max_cm": 32.0,
+  "within_5cm": 0,
+  "within_10cm": 1,
+  "total_time_s": 695.7,
+  "total_path_m": 153.6,
+  "mean_time_s": 34.8
+ },
+ "nav_tuned": {
+  "goals": 20,
+  "succeeded": 20,
+  "contacts": 0,
+  "final_err_mean_cm": 4.9,
+  "final_err_max_cm": 7.5,
+  "within_5cm": 11,
+  "within_10cm": 20,
+  "total_time_s": 785.2,
+  "total_path_m": 143.1,
+  "mean_time_s": 39.3
+ }
+}

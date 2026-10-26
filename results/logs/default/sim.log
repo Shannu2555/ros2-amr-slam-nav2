@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/workspace/ros2-amr-slam-nav2/amr_sim/sim_node.py", line 150, in <module>
+    main()
+  File "/workspace/ros2-amr-slam-nav2/amr_sim/sim_node.py", line 144, in main
+    rclpy.spin(n)
+  File "/workspace/ros/mamba/envs/humble/lib/python3.11/site-packages/rclpy/__init__.py", line 226, in spin
+    executor.spin_once()
+  File "/workspace/ros/mamba/envs/humble/lib/python3.11/site-packages/rclpy/executors.py", line 751, in spin_once
+    self._spin_once_impl(timeout_sec)
+  File "/workspace/ros/mamba/envs/humble/lib/python3.11/site-packages/rclpy/executors.py", line 740, in _spin_once_impl
+    handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/ros/mamba/envs/humble/lib/python3.11/site-packages/rclpy/executors.py", line 723, in wait_for_ready_callbacks
+    return next(self._cb_iter)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/ros/mamba/envs/humble/lib/python3.11/site-packages/rclpy/executors.py", line 624, in _wait_for_ready_callbacks
+    raise ExternalShutdownException()
+rclpy.executors.ExternalShutdownException

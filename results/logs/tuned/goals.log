@@ -1,0 +1,142 @@
+[INFO] [1793021551.620827842] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.626085000] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.626438143] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.626730912] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.627028261] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.627213789] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.627438370] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.627637882] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.627822129] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.628031341] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.628610342] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.628804856] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.628997201] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.629324129] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.629511092] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.629738457] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.630163876] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.630354643] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.630629375] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.630947954] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.631169904] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.631348771] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.631757271] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.631924823] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.632098658] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.632494925] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.632667765] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.632841611] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.633220083] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.633385042] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.633556628] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.633937325] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.634110792] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.634373689] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.634809598] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.634976706] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.635174147] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.635576250] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.635747117] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.635918341] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.636319855] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.636489755] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.636671289] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.637041954] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.637209066] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.637382590] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.637740274] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.637938873] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.638111553] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.638518277] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.638699786] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.638885314] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.639255798] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.639425592] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.639657763] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.640013701] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.640182222] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.640382923] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.640725670] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.640920989] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.641126292] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.641541293] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.641713387] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.641889957] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.642293264] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.642471300] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.642650476] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.643031333] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.643196676] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.643370358] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.643731102] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.643894432] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.644065586] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.644451587] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.644629262] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.644823982] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.645246041] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.645433252] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.645617251] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.645987699] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.646154621] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.646342991] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.650256625] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.650510398] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.650746433] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.651104946] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.651306547] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.651485551] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.660271004] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.660530978] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.660779179] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.670999826] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.671236956] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.671446045] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.671726681] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.671892465] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.672072904] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021555.680161719] [basic_navigator]: Setting initial pose
+[INFO] [1793021555.680416616] [basic_navigator]: Publishing Initial Pose
+[INFO] [1793021555.680678202] [basic_navigator]: Waiting for amcl_pose to be received
+[INFO] [1793021561.689533328] [basic_navigator]: Nav2 is ready for use!
+[INFO] [1793021561.690450356] [basic_navigator]: Navigating to goal: 7.0 0.0...
+[INFO] [1793021594.356739651] [basic_navigator]: GOAL {'goal': 1, 'x': 8.0, 'y': 1.0, 'result': 'SUCCEEDED', 'time_s': 34.7, 'path_m': 6.99, 'straight_m': None, 'final_err_m': 0.027, 'amcl_err_m': 0.019}
+[INFO] [1793021594.357639870] [basic_navigator]: Navigating to goal: 8.35 2.3...
+[INFO] [1793021610.470129541] [basic_navigator]: GOAL {'goal': 2, 'x': 9.35, 'y': 3.3, 'result': 'SUCCEEDED', 'time_s': 16.1, 'path_m': 3.04, 'straight_m': None, 'final_err_m': 0.034, 'amcl_err_m': 0.013}
+[INFO] [1793021610.472083020] [basic_navigator]: Navigating to goal: 4.0 2.3...
+[INFO] [1793021632.885973577] [basic_navigator]: GOAL {'goal': 3, 'x': 5.0, 'y': 3.3, 'result': 'SUCCEEDED', 'time_s': 22.4, 'path_m': 4.41, 'straight_m': None, 'final_err_m': 0.066, 'amcl_err_m': 0.029}
+[INFO] [1793021632.887076973] [basic_navigator]: Navigating to goal: 10.2 3.5...
+[INFO] [1793021666.800089141] [basic_navigator]: GOAL {'goal': 4, 'x': 11.2, 'y': 4.5, 'result': 'SUCCEEDED', 'time_s': 33.9, 'path_m': 6.48, 'straight_m': None, 'final_err_m': 0.045, 'amcl_err_m': 0.027}
+[INFO] [1793021666.801342058] [basic_navigator]: Navigating to goal: 1.5 0.0...
+[INFO] [1793021732.485445309] [basic_navigator]: GOAL {'goal': 5, 'x': 2.5, 'y': 1.0, 'result': 'SUCCEEDED', 'time_s': 65.7, 'path_m': 12.47, 'straight_m': None, 'final_err_m': 0.048, 'amcl_err_m': 0.009}
+[INFO] [1793021732.487173100] [basic_navigator]: Navigating to goal: 8.35 0.19999999999999996...
+[INFO] [1793021776.060563407] [basic_navigator]: GOAL {'goal': 6, 'x': 9.35, 'y': 1.2, 'result': 'SUCCEEDED', 'time_s': 43.6, 'path_m': 7.04, 'straight_m': None, 'final_err_m': 0.04, 'amcl_err_m': 0.012}
+[INFO] [1793021776.061543438] [basic_navigator]: Navigating to goal: 5.0 6.2...
+[INFO] [1793021818.639886963] [basic_navigator]: GOAL {'goal': 7, 'x': 6.0, 'y': 7.2, 'result': 'SUCCEEDED', 'time_s': 42.6, 'path_m': 8.11, 'straight_m': None, 'final_err_m': 0.031, 'amcl_err_m': 0.029}
+[INFO] [1793021818.640839004] [basic_navigator]: Navigating to goal: 0.30000000000000004 5.0...
+[INFO] [1793021846.753882056] [basic_navigator]: GOAL {'goal': 8, 'x': 1.3, 'y': 6.0, 'result': 'SUCCEEDED', 'time_s': 28.1, 'path_m': 5.38, 'straight_m': None, 'final_err_m': 0.075, 'amcl_err_m': 0.051}
+[INFO] [1793021846.754892206] [basic_navigator]: Navigating to goal: 9.0 6.2...
+[INFO] [1793021888.718321635] [basic_navigator]: GOAL {'goal': 9, 'x': 10.0, 'y': 7.2, 'result': 'SUCCEEDED', 'time_s': 42.0, 'path_m': 9.1, 'straight_m': None, 'final_err_m': 0.047, 'amcl_err_m': 0.015}
+[INFO] [1793021888.719242454] [basic_navigator]: Navigating to goal: 4.5 0.19999999999999996...
+[INFO] [1793021936.752668352] [basic_navigator]: GOAL {'goal': 10, 'x': 5.5, 'y': 1.2, 'result': 'SUCCEEDED', 'time_s': 48.0, 'path_m': 9.46, 'straight_m': None, 'final_err_m': 0.059, 'amcl_err_m': 0.012}
+[INFO] [1793021936.753643218] [basic_navigator]: Navigating to goal: 8.35 2.0...
+[INFO] [1793021959.666278389] [basic_navigator]: GOAL {'goal': 11, 'x': 9.35, 'y': 3.0, 'result': 'SUCCEEDED', 'time_s': 22.9, 'path_m': 5.05, 'straight_m': None, 'final_err_m': 0.034, 'amcl_err_m': 0.039}
+[INFO] [1793021959.667409380] [basic_navigator]: Navigating to goal: 2.0 4.0...
+[INFO] [1793022003.591163320] [basic_navigator]: GOAL {'goal': 12, 'x': 3.0, 'y': 5.0, 'result': 'SUCCEEDED', 'time_s': 43.9, 'path_m': 8.42, 'straight_m': None, 'final_err_m': 0.04, 'amcl_err_m': 0.042}
+[INFO] [1793022003.593054969] [basic_navigator]: Navigating to goal: 10.2 2.6...
+[INFO] [1793022045.827721019] [basic_navigator]: GOAL {'goal': 13, 'x': 11.2, 'y': 3.6, 'result': 'SUCCEEDED', 'time_s': 42.2, 'path_m': 8.61, 'straight_m': None, 'final_err_m': 0.064, 'amcl_err_m': 0.016}
+[INFO] [1793022045.830059158] [basic_navigator]: Navigating to goal: 6.5 2.3...
+[INFO] [1793022065.842521558] [basic_navigator]: GOAL {'goal': 14, 'x': 7.5, 'y': 3.3, 'result': 'SUCCEEDED', 'time_s': 20.0, 'path_m': 3.73, 'straight_m': None, 'final_err_m': 0.051, 'amcl_err_m': 0.007}
+[INFO] [1793022065.843682498] [basic_navigator]: Navigating to goal: 7.5 0.19999999999999996...
+[INFO] [1793022094.556438656] [basic_navigator]: GOAL {'goal': 15, 'x': 8.5, 'y': 1.2, 'result': 'SUCCEEDED', 'time_s': 28.7, 'path_m': 4.0, 'straight_m': None, 'final_err_m': 0.056, 'amcl_err_m': 0.012}
+[INFO] [1793022094.557525112] [basic_navigator]: Navigating to goal: 0.5 1.0...
+[INFO] [1793022129.820792038] [basic_navigator]: GOAL {'goal': 16, 'x': 1.5, 'y': 2.0, 'result': 'SUCCEEDED', 'time_s': 35.2, 'path_m': 7.43, 'straight_m': None, 'final_err_m': 0.07, 'amcl_err_m': 0.023}
+[INFO] [1793022129.822884074] [basic_navigator]: Navigating to goal: 8.0 4.0...
+[INFO] [1793022229.877562259] [basic_navigator]: GOAL {'goal': 17, 'x': 9.0, 'y': 5.0, 'result': 'SUCCEEDED', 'time_s': 100.0, 'path_m': 10.49, 'straight_m': None, 'final_err_m': 0.042, 'amcl_err_m': 0.016}
+[INFO] [1793022229.879541069] [basic_navigator]: Navigating to goal: 3.5 6.3...
+[INFO] [1793022257.292302959] [basic_navigator]: GOAL {'goal': 18, 'x': 4.5, 'y': 7.3, 'result': 'SUCCEEDED', 'time_s': 27.4, 'path_m': 5.4, 'straight_m': None, 'final_err_m': 0.056, 'amcl_err_m': 0.037}
+[INFO] [1793022257.293333928] [basic_navigator]: Navigating to goal: 8.35 0.5...
+[INFO] [1793022303.356441516] [basic_navigator]: GOAL {'goal': 19, 'x': 9.35, 'y': 1.5, 'result': 'SUCCEEDED', 'time_s': 46.0, 'path_m': 9.0, 'straight_m': None, 'final_err_m': 0.053, 'amcl_err_m': 0.013}
+[INFO] [1793022303.358388156] [basic_navigator]: Navigating to goal: 0.0 0.0...
+[INFO] [1793022345.171736058] [basic_navigator]: GOAL {'goal': 20, 'x': 1.0, 'y': 1.0, 'result': 'SUCCEEDED', 'time_s': 41.8, 'path_m': 8.44, 'straight_m': None, 'final_err_m': 0.042, 'amcl_err_m': 0.017}
+[INFO] [1793022345.172482073] [basic_navigator]: RUN_DONE
