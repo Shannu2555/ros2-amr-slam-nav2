@@ -2,6 +2,8 @@
 
 A warehouse robot in ROS 2 Humble. First it maps the floor with slam_toolbox, then it uses that saved map to drive to 20 pick spots with AMCL and Nav2. I ran the 20 goals twice, once with the stock Nav2 params and once with my tuned ones, and checked where the robot actually stopped.
 
+![Robot driving to pick goals with live lidar](https://github.com/user-attachments/assets/9205d30d-d156-4925-94c1-d02f405df72e)
+
 https://github.com/user-attachments/assets/8ffe583e-a2d2-4418-86dc-9ed654b71e16
 
 ## What it is
