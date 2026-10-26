@@ -2,9 +2,7 @@
 
 A warehouse robot in ROS 2 Humble. First it maps the floor with slam_toolbox, then it uses that saved map to drive to 20 pick spots with AMCL and Nav2. I ran the 20 goals twice, once with the stock Nav2 params and once with my tuned ones, and checked where the robot actually stopped.
 
-https://github.com/user-attachments/assets/10b90361-4632-45ad-8588-a1eb289a3bdd
-
-Click the image for the full demo video ([docs/media/amr_demo_v2.mp4](docs/media/amr_demo_v2.mp4)). Mapping is sped up 6x, and the navigation part plays in real time.
+https://github.com/user-attachments/assets/8ffe583e-a2d2-4418-86dc-9ed654b71e16
 
 ## What it is
 
