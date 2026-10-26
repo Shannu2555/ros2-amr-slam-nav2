@@ -1,2 +1,6 @@
 __pycache__/
 *.pyc
+tools/video_v2/frames/
+tools/video_v2/runs/
+tools/video_v2/cards/
+tools/video_v2/seg/

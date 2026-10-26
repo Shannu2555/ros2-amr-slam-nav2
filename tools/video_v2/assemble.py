@@ -1,4 +1,7 @@
-import subprocess, json
+"""Joins the title card, the two scenes and the result cards into one MP4 with short fades."""
+import subprocess, json, os
+OUTFILE = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "docs", "media", "amr_demo_v2.mp4"))
+os.makedirs("seg", exist_ok=True)
 FPS = 30; XF = 0.5
 def enc_frames(d, out):
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-framerate", "30", "-i", f"frames/{d}/f%04d.png", "-c:v", "libx264",
@@ -24,5 +27,5 @@ for i in range(1, len(segs)):
 fc_s = ";".join(fc)
 subprocess.run(["ffmpeg", "-y", "-loglevel", "error", *inp, "-filter_complex", fc_s, "-map", prev, "-c:v", "libx264", "-preset", "slow",
                 "-crf", "20", "-pix_fmt", "yuv420p", "-r", "30", "-profile:v", "high", "-movflags", "+faststart", "-an",
-                "/workspace/linkedin_post3_v2.mp4"], check=True)
-print(ds, dur("/workspace/linkedin_post3_v2.mp4"))
+                OUTFILE], check=True)
+print(ds, dur(OUTFILE))

@@ -11,7 +11,7 @@ for f in ["Inter-Regular", "Inter-Medium", "Inter-SemiBold", "Inter-Bold"]:
     font_manager.fontManager.addfont(f"/usr/share/fonts/opentype/inter/{f}.otf")
 plt.rcParams.update({"font.family": "Inter", "text.color": "#e5e7eb", "axes.labelcolor": "#cbd5e1",
                      "xtick.color": "#94a3b8", "ytick.color": "#94a3b8", "axes.edgecolor": "#334155"})
-REPO = "/workspace/ros2-amr-slam-nav2"
+REPO = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 sys.path.insert(0, f"{REPO}/amr_sim")
 import world
 BG = "#0b1117"; PANEL = "#111a23"; ACC = "#38bdf8"; TXT = "#e5e7eb"; MUTE = "#94a3b8"; DIM = "#64748b"

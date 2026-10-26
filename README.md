@@ -1,59 +1,86 @@
 # ros2-amr-slam-nav2
 
-Warehouse AMR in ROS 2 Humble: map the floor with **slam_toolbox** (online async), then run **AMCL + Nav2** on the saved map through 20 pick-station goals with `nav2_simple_commander`.
+A warehouse robot in ROS 2 Humble. First it maps the floor with slam_toolbox, then it uses that saved map to drive to 20 pick spots with AMCL and Nav2. I ran the 20 goals twice, once with the stock Nav2 params and once with my tuned ones, and checked where the robot actually stopped.
 
-![mapping](docs/media/mapping.gif)
+[![Demo video: mapping, then default vs tuned Nav2 on the same goal](docs/media/amr_demo_v2_preview.png)](docs/media/amr_demo_v2.mp4)
 
-## What's in here
+Click the image for the full demo video ([docs/media/amr_demo_v2.mp4](docs/media/amr_demo_v2.mp4)). Mapping is sped up 6x, and the navigation part plays in real time.
 
-| path | what |
-|---|---|
-| `amr_sim/sim_node.py` | my own 2D diff-drive simulator (no Gazebo on this machine): `/cmd_vel` in, `/odom` + TF `odom->base_link`, 360-beam lidar `/scan` raycast against the warehouse grid, `/ground_truth`, `/clock` out. Wheel odom has noise and a 1.5 % yaw scale error so it drifts. |
-| `amr_sim/world.py` | 12 m x 8 m warehouse: shelf rows, pallets and a 0.70 m slot between the lower corridor and the middle aisle |
-| `amr_sim/tour_node.py` | mapping drive (stand-in for teleop) |
-| `amr_sim/goal_runner.py` | sends the 20 goals, logs result, time, path length and where the robot really stopped |
-| `config/slam.yaml` | slam_toolbox online async params |
-| `config/nav2_default.yaml` / `config/nav2_tuned.yaml` | stock Nav2 Humble params vs my tuned version |
-| `maps/warehouse.{pgm,yaml}` | the map slam_toolbox built |
-| `results/` | raw logs, goal JSONs, `metrics.json` |
-| `tools/` | analysis and video scripts |
+## What it is
 
-## Results (all from `results/metrics.json`)
+I don't have Gazebo on the machine I used, so I wrote a small 2D simulator for the robot (`amr_sim/sim_node.py`). It's a differential drive base with a 360 beam lidar (8 m range) that raycasts against a 12 m x 8 m warehouse grid. Wheel odometry has some noise and a 1.5% yaw scale error, so it drifts like a real base would. There's no wheel slip or real dynamics, it's kinematic only.
 
-| | default Nav2 params | tuned |
+Everything on top of that is the real ROS 2 stack: slam_toolbox (online async) for mapping, AMCL for localization, Nav2 for planning and control, and `nav2_simple_commander` to send the goals. The sim also publishes the true pose on `/ground_truth`, which is how I measured the stop error.
+
+## What I found
+
+Nav2 said SUCCEEDED for all 20 goals with the default params. Then I compared with ground truth and the robot was stopping up to 32 cm away from the pick spot. 19 of the 20 stops were between 12.8 and 32 cm off.
+
+All numbers below are from `results/metrics.json`.
+
+| | Default params | Tuned params |
 |---|---|---|
 | Nav2 result SUCCEEDED | 20/20 | 20/20 |
-| mean distance from pick spot (ground truth) | 21.0 cm | 4.9 cm |
-| worst | 32.0 cm | 7.5 cm |
-| stops within 5 cm | 0/20 | 11/20 |
-| wall contacts | 0 | 0 |
-| total time | 11.6 min | 13.1 min |
+| Mean stop error (vs ground truth) | 21.0 cm | 4.9 cm |
+| Worst stop error | 32.0 cm | 7.5 cm |
+| Stops within 5 cm | 0/20 | 11/20 |
+| Stops within 10 cm | 1/20 | 20/20 |
+| Wall contacts | 0 | 0 |
+| Total time for 20 goals | 11.6 min | 13.1 min |
 
-Mapping: 47.2 m drive, 76 map updates, 81.2 % of mapped wall cells within 5 cm of the real walls. Wheel odometry alone drifted up to 0.44 m over the same drive.
+So the tuned run costs about 1.5 min more over the 20 goals, but every stop is within 7.5 cm.
 
-![goal error](docs/media/goal_error.png)
-![map vs truth](docs/media/map_vs_truth.png)
+Mapping: the robot drove 47.2 m, slam_toolbox published 76 map updates, and 81.2% of the mapped wall cells are within 5 cm of the real walls. Wheel odometry alone drifted up to 0.44 m on the same drive.
 
-## What was wrong with the defaults
+![Stop error per goal](docs/media/goal_error.png)
+![slam_toolbox map vs the real walls](docs/media/map_vs_truth.png)
 
-Nav2 reported every goal as SUCCEEDED, but the robot was stopping 13 to 32 cm away from the pick spot. Two reasons:
-1. `xy_goal_tolerance: 0.25` in both the goal checker and DWB: anything within 25 cm counts as done.
-2. AMCL only updated after 25 cm / 0.2 rad of motion and used 60 beams, so the pose it ended on was often stale.
+## What I changed and why
 
-Changes in `nav2_tuned.yaml`: goal tolerance 0.05 m / 0.15 rad, AMCL `update_min_d 0.05`, `update_min_a 0.05`, `max_beams 180`, `laser_max_range 8.0`, `sigma_hit 0.05`, `alpha1-4 0.1`, `min_particles 1000`, and `robot_radius 0.20` + `inflation_radius 0.45` so the 0.70 m slot stays cheap enough to plan through. Cost: about 1.5 min more over the 20 goals.
+There were two problems with the defaults.
 
-## Run it
+The first is the goal tolerance. `xy_goal_tolerance` is 0.25 in both the goal checker and DWB, so anything within 25 cm counts as "arrived". Nav2 wasn't lying, it was just happy with 25 cm.
 
-Needs ROS 2 Humble with `slam_toolbox`, `nav2_bringup`, `nav2_simple_commander` (I used a RoboStack micromamba env).
+The second took me longer to see. AMCL only updates after the robot moves 25 cm or turns 0.2 rad, and it only uses 60 beams. So when the robot slowed down near the goal, the pose it was trusting was often a bit old.
+
+Changes in `config/nav2_tuned.yaml`:
+
+- Goal tolerance 0.05 m and yaw tolerance 0.15 rad (was 0.25 / 0.25)
+- AMCL `update_min_d` 0.05 and `update_min_a` 0.05 (was 0.25 / 0.2), so it updates much more often
+- AMCL `max_beams` 180 (was 60), `laser_max_range` 8.0 to match the lidar, `sigma_hit` 0.05 (was 0.2)
+- AMCL `alpha1` to `alpha4` 0.1 (was 0.2) and `min_particles` 1000 (was 500)
+- `robot_radius` 0.20 and `inflation_radius` 0.45 (was 0.22 / 0.55). With the defaults the 0.70 m slot between the lower corridor and the middle aisle was too expensive to plan through.
+
+## How to run it
+
+You need ROS 2 Humble with `slam_toolbox`, `nav2_bringup` and `nav2_simple_commander`. I used a RoboStack micromamba env, so the scripts activate that. Change the first few lines of the scripts if your setup is different.
 
 ```bash
-bash scripts/run_mapping.sh                       # drive + map -> results/mapping_run.npz
+bash scripts/run_mapping.sh                          # drive the loop + map, saves results/mapping_run.npz
 python3 tools/save_map.py results/mapping_run.npz maps/warehouse
 bash scripts/run_nav.sh default config/nav2_default.yaml
 bash scripts/run_nav.sh tuned   config/nav2_tuned.yaml
-python3 tools/analyze.py && python3 tools/make_video.py
+python3 tools/analyze.py                             # metrics.json + plots
 ```
 
-Note: the simulator is a simple 2D one I wrote, not Gazebo, so there's no wheel slip or dynamics beyond a kinematic diff drive. slam_toolbox, AMCL and Nav2 are the real packages.
+`tools/make_video.py` builds the older demo video. The new one is made with the scripts in `tools/video_v2/` (the steps are at the top of `run_viz.sh`).
+
+## Repo layout
+
+| Path | What's in it |
+|---|---|
+| `amr_sim/sim_node.py` | my 2D diff drive simulator: `/cmd_vel` in, `/odom`, TF, `/scan`, `/ground_truth`, `/clock` out |
+| `amr_sim/world.py` | the 12 m x 8 m warehouse grid (shelf rows, pallets, the 0.70 m slot) |
+| `amr_sim/tour_node.py` | the mapping drive, a fixed loop instead of teleop |
+| `amr_sim/goal_runner.py` | sends the 20 goals and logs result, time, path length and true stop position |
+| `amr_sim/map_recorder.py` | saves every `/map` update and the poses to an npz |
+| `config/` | slam_toolbox params, default and tuned Nav2 params |
+| `maps/` | the map slam_toolbox built |
+| `results/` | `metrics.json`, per-goal JSONs, raw logs and recorded runs |
+| `scripts/` | run scripts for mapping and navigation |
+| `tools/` | analysis, map saving and video scripts |
+| `docs/media/` | demo videos and plots |
+
+A note on the demo video: the navigation clip in it is a separate re-run of both configs, because the original 20-goal runs didn't record particles, paths or scans. In that clip goal 1 stopped 23.9 cm off with default params and 3.6 cm with tuned. The tables and plots all use the original runs. In the mapping part, the lidar rays are redrawn from the logged robot poses using the same lidar model as the sim.
 
 Shanmukh Narayana Chaganti

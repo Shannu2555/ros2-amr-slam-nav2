@@ -5,16 +5,23 @@ from multiprocessing import Pool
 from theme import *
 z = np.load(f"{REPO}/results/mapping_run.npz"); mt = z["mt"]; gt = z["gt"]; n = len(mt)
 maps = [z[f"map{k}"] for k in range(n)]; meta = z["meta"]
-SPEED = 8
+SPEED = 6
 T = np.arange(gt[0, 0], gt[-1, 0], SPEED / FPS)
 T = np.concatenate([T, [gt[-1, 0]] * 45])   # hold final map 1.5 s
 dist = np.concatenate([[0], np.cumsum(np.hypot(np.diff(gt[:, 1]), np.diff(gt[:, 2])))])
+TH_U = np.unwrap(gt[:, 3])
+
+
+def pose_at(g, t):  # interpolate between logged poses so the motion is smooth
+    return np.interp(t, g[:, 0], g[:, 1]), np.interp(t, g[:, 0], g[:, 2]), np.interp(t, g[:, 0], TH_U)
+
+
 OUT = "frames/map"; os.makedirs(OUT, exist_ok=True)
 
 
 def render(f):
     t = T[f]; k = max(0, np.searchsorted(mt, t, "right") - 1); i = min(np.searchsorted(gt[:, 0], t), len(gt) - 1)
-    x, y, th = gt[i, 1], gt[i, 2], gt[i, 3]
+    x, y, th = pose_at(gt, t)
     fig = fig_new()
     header(fig, "STEP 1 OF 2  ·  MAPPING", "The robot builds the warehouse map as it drives",
            "slam_toolbox fuses each lidar scan with wheel odometry")

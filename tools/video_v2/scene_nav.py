@@ -1,4 +1,4 @@
-"""Scene 2: AMCL + Nav2, goal 1 (8.0, 1.0), default vs tuned params, replayed at 1x from the
+"""Scene 2: AMCL + Nav2, goal 1 (8.0, 1.0), default vs tuned params, replayed at 1x (real time) from the
 visualisation re-runs (runs/<name>/viz.pkl: /ground_truth, /scan, /particle_cloud, /plan)."""
 import os, sys, json, pickle, numpy as np
 from multiprocessing import Pool
@@ -24,7 +24,8 @@ def load(name):
 goals_xy = [(8.0, 1.0), (9.35, 3.3)]
 RUNS = {"default": load("default"), "tuned": load(os.environ.get("TUNED", "tuned"))}
 DUR = max(r["t_end"] - r["t0"] for r in RUNS.values()) + 1.0
-NPLAY = int(DUR * FPS); NZOOM = 75; NHOLD = 75
+SPEED = 1.0
+NPLAY = int(DUR * FPS / SPEED); NZOOM = 75; NHOLD = 75
 NTOT = NPLAY + NZOOM + NHOLD
 OUT = "frames/nav"; os.makedirs(OUT, exist_ok=True)
 ease = lambda u: 0.5 - 0.5 * math.cos(math.pi * min(max(u, 0), 1))
@@ -38,7 +39,8 @@ def panel(fig, rect, r, label, col, t, zoom):
     style_ax(ax, (cx - w / 2, cx + w / 2), (cy - h / 2, cy + h / 2))
     draw_map(ax, MAP, META)
     gt = r["gt"]; tt = min(t, r["t_end"]); i = max(0, min(np.searchsorted(gt[:, 0], tt) - 1, len(gt) - 1))
-    x, y, th = gt[i, 1:4]
+    x, y = np.interp(tt, gt[:, 0], gt[:, 1]), np.interp(tt, gt[:, 0], gt[:, 2])
+    th = np.interp(tt, gt[:, 0], np.unwrap(gt[:, 3]))  # smooth pose between logged samples
     j = np.searchsorted(r["plan_t"], tt) - 1
     if j >= 0 and t < r["t_end"] + 0.5:
         p = r["plan"][j][1]; ax.plot(p[:, 0] + OX, p[:, 1] + OY, color=C_PATH, lw=2.2, zorder=2.5, alpha=0.9)
@@ -72,7 +74,7 @@ def panel(fig, rect, r, label, col, t, zoom):
 
 
 def render(f):
-    if f < NPLAY: tl, zoom = f / FPS, 0.0
+    if f < NPLAY: tl, zoom = f / FPS * SPEED, 0.0
     else: tl, zoom = DUR, ease((f - NPLAY) / NZOOM)
     fig = fig_new()
     header(fig, "STEP 2 OF 2  ·  NAVIGATION", "Same goal, same map: default vs tuned Nav2",
